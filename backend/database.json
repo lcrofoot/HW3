@@ -1,0 +1,27 @@
+[
+{
+    "Username": "Homer",
+    "password":"dohdoh"
+},
+
+{
+    "Username": "Bart",
+    "password":"eatmyshorts"
+},
+
+{
+    "Username": "Lisa",
+    "password":"illbeinmyroom"
+},
+
+{
+    "Username": "Marge",
+    "password":"hmmmmm"
+},
+
+{
+    "Username": "Maggie",
+    "password":"pacifier"
+}
+
+]
