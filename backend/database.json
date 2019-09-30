@@ -1,27 +1,37 @@
 [
 {
     "Username": "Homer",
-    "password":"dohdoh"
+    "password":"dohdoh",
+    "FirstName": "Homer",
+    "LastName": "Simpson"
 },
 
 {
     "Username": "Bart",
-    "password":"eatmyshorts"
+    "password":"eatmyshorts",
+    "FirstName": "Bart",
+    "LastName": "Simpson"
 },
 
 {
     "Username": "Lisa",
-    "password":"illbeinmyroom"
+    "password":"illbeinmyroom",
+    "FirstName": "Lisa",
+    "LastName": "Simpson"
 },
 
 {
     "Username": "Marge",
-    "password":"hmmmmm"
+    "password":"hmmmmm",
+    "FirstName": "Marge",
+    "LastName": "Simpson"
 },
 
 {
     "Username": "Maggie",
-    "password":"pacifier"
+    "password":"pacifier",
+    "FirstName": "Maggie",
+    "LastName": "Simpson"
 }
 
 ]

@@ -12,50 +12,40 @@ app.get('/',function(req,res){
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-//You will need to add more routes than just '/' so that your website can talk to your webserver using the get XMLHttpRequests
+//check username and password with list of users in database.json 
 app.get('/users/:username/pw/:password',function(req,res){
-
+    //save user and password from form
     var user = req.params.username;
     var password = req.params.password;
-    object = {Username: user, password: password}
-    console.log(object)
 
+    //check form-submitted values with database 
     for (var i = 0; i < database.length; i++) {
         console.log(database[i].Username)
         if (user == database[i].Username){
             console.log(database[i].password)
-            console.log(object.password)
+            console.log(password)
             if (password == database[i].password) {
-                //document.location.href = path.join(__dirname, '../' + 'public/UserPage.html');
-                //res.sendFile(path.join(__dirname, '../' + 'public/UserPage.html')); // how do I send the username data to the page? 
-                res.send("match") // why does it only do this line instead of sendFile above if I have both?
+                // define object to be passed to frontEnd 
+                object = {Username: user, FirstName: database[i].FirstName, LastName: database[i].LastName}
+                res.send(object) // send username, first name and last name to front end 
                 console.log("match!")
-                // go to user page 
-                // how do I get rid of the stuff on this page and start a new page? 
-                break   
+                break   // exit loop once a match is found
             }
-            else {
+            else { // if a user is found but the password doesn't match
                 console.log("wrong password")
-                //res.send("wrongpass")
-                res.sendFile(path.join(__dirname, '../' + 'public/AccessDenied.html'));
+                res.send('{}') // send no result 
                 break
             }
         }
     }
     
     console.log('i=', i)
-    if (i == database.length){
+    if (i == database.length){ // if it goes through the whole loop but no user is found
         console.log("wrong username")
-        res.send("wrongusername")
-        //res.sendFile(path.join(__dirname, '../' + 'public/AccessDenied.html'));
+        res.send('{}') // send no result
     }
-        //res.send('<h1> Hello '+user+'</h1>');
  
 });
 
-// app.get('/users/:username',function(req,res){
 
-//     res.sendFile(path.join(__dirname, '../' + 'public/AccessDenied.html'));
-
-// });
 app.listen(8080);
