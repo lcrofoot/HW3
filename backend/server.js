@@ -28,7 +28,7 @@ app.get('/users/:username/pw/:password',function(req,res){
             if (password == database[i].password) {
                 //document.location.href = path.join(__dirname, '../' + 'public/UserPage.html');
                 //res.sendFile(path.join(__dirname, '../' + 'public/UserPage.html')); // how do I send the username data to the page? 
-                res.send(user) // why does it only do this line instead of sendFile above if I have both?
+                res.send("match") // why does it only do this line instead of sendFile above if I have both?
                 console.log("match!")
                 // go to user page 
                 // how do I get rid of the stuff on this page and start a new page? 
@@ -36,6 +36,7 @@ app.get('/users/:username/pw/:password',function(req,res){
             }
             else {
                 console.log("wrong password")
+                //res.send("wrongpass")
                 res.sendFile(path.join(__dirname, '../' + 'public/AccessDenied.html'));
                 break
             }
@@ -45,7 +46,8 @@ app.get('/users/:username/pw/:password',function(req,res){
     console.log('i=', i)
     if (i == database.length){
         console.log("wrong username")
-        res.sendFile(path.join(__dirname, '../' + 'public/AccessDenied.html'));
+        res.send("wrongusername")
+        //res.sendFile(path.join(__dirname, '../' + 'public/AccessDenied.html'));
     }
         //res.send('<h1> Hello '+user+'</h1>');
  
