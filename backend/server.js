@@ -8,6 +8,7 @@ var AES=require("crypto-js/aes");
 var SHA256=require("crypto-js/sha256");
 // Don't change anything above this line unless you know what it will do
 
+var myPassword = 'myPassword';
 
 app.get('/',function(req,res){
     // Right now this does nothing. To send the index file from the public directory follow the methods in the class example
@@ -50,18 +51,19 @@ app.get('/users/:username/pw/:password',function(req,res){
  
 });
 
-// How to integrate Crytpo.JS ? ... Ask in class 
-var mystring = 'this is my string bla';
-var myPassword = 'myPassword';
-// test encryption 
+// Experiment with CryptoJS -- I wasn't able to get this to workin the code since:
+// 1) it encrypted differently each time - so hard coding ecrypted passwords in the JSON didn't work
+// 2) Couldn't get it to work on front end, so couldn't pass encrypted passwords from server.js to frontend.js
+//var mystring = 'dohdoh';
+//test encryption 
 
-var encrypted = CryptoJS.AES.encrypt(mystring, myPassword)
-var decrypted = CryptoJS.AES.decrypt(encrypted, myPassword)
-console.log(mystring)
-console.log(encrypted)
-console.log(decrypted)
-console.log(decrypted.toString(CryptoJS.enc.Utf8))
+//var encrypted = CryptoJS.AES.encrypt(mystring, myPassword)
+//var decrypted = CryptoJS.AES.decrypt(encrypted, myPassword)
+//console.log(mystring)
+//console.log(encrypted.toString())
+//console.log(decrypted)
+//console.log(decrypted.toString(CryptoJS.enc.Utf8))
 
-console.log(mystring==decrypted.toString(CryptoJS.enc.Utf8))
+//console.log(mystring==decrypted.toString(CryptoJS.enc.Utf8))
 
 app.listen(8080);

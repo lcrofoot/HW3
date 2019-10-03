@@ -36,13 +36,3 @@ var getUser = function(){
     var theURL = '/users/'+ username+ '/pw/'+password;
     httpGet(theURL);
 };
-
-
-var encrypted = CryptoJS.AES.encrypt(mystring, myPassword)
-var decrypted = CryptoJS.AES.decrypt(encrypted, myPassword)
-console.log(mystring)
-console.log(encrypted)
-console.log(decrypted)
-console.log(decrypted.toString(CryptoJS.enc.Utf8))
-
-console.log(mystring==decrypted.toString(CryptoJS.enc.Utf8))
