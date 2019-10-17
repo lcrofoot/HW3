@@ -24,10 +24,10 @@ app.get('/users/:username/pw/:password',function(req,res){
 
     //check form-submitted values with database 
     for (var i = 0; i < database.length; i++) {
-        console.log(database[i].Username);
+        //console.log(database[i].Username);
         if (user == database[i].Username){
-            console.log(database[i].password);
-            console.log(password);
+            //console.log(database[i].password);
+            //console.log(password);
             if (password == database[i].password) {
                 // define object to be passed to frontEnd 
                 object = {Username: user, FirstName: database[i].FirstName, LastName: database[i].LastName};
@@ -43,7 +43,7 @@ app.get('/users/:username/pw/:password',function(req,res){
         }
     }
     
-    console.log('i=', i)
+    //console.log('i=', i)
     if (i == database.length){ // if it goes through the whole loop but no user is found
         console.log("wrong username");
         res.send('{}'); // send no result
